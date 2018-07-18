@@ -1,0 +1,11 @@
+{
+    "seller":  {
+      "mainPrice": 20
+    },
+    "goods": [
+      {
+        "name": "iPone 7",
+        "price": 5000
+      }
+    ]
+}
