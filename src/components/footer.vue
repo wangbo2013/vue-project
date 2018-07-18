@@ -15,7 +15,7 @@
 <style lang="stylus" scoped>
   .el-footer{
     background-color: #ebebeb;
-    color: #333;
+    color: #444;
     text-align: center;
     height: 40px !important;
     line-height: 40px;

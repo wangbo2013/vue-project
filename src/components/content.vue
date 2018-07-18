@@ -76,7 +76,7 @@
     display: -webkit-flex;
     flex-direction: row;
     .el-aside{
-      background-color: #D3DCE6;
+      background-color: #D3DCE5;
       color: #333;
       text-align: center;
       line-height: 200px;

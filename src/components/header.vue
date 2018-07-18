@@ -30,7 +30,7 @@
     display: flex;
     display: -webkit-flex;
     span{
-      width: 200px;
+      width: 210px;
     }
     .el-input{
       width: 300px;
