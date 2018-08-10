@@ -6,9 +6,9 @@
   </el-container>
 </template>
 <script>
-  import header from './components/header';
-  import content from './components/content';
-  import footer from './components/footer';
+  import header from './views/layout/header';
+  import content from './views/layout/content';
+  import footer from './views/layout/footer';
 export default {
   name: 'app',
   data(){
