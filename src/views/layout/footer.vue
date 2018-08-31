@@ -4,13 +4,13 @@
   </el-footer>
 </template>
 <script>
-    export default{
-        data(){
-            return {
-                name: '菜鸟教程'
-            }
-        }
+export default{
+  data () {
+    return {
+      name: '菜鸟教程'
     }
+  }
+}
 </script>
 <style lang="stylus" scoped>
   .el-footer{
