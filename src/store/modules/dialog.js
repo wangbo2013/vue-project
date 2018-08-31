@@ -1,28 +1,28 @@
 import * as TYPES from '../mutations'
 
 const state = {
-  status: false,
-  type: null,
-  title: ''
+  dialogStatus: false,
+  dialogType: null,
+  dialogTitle: ''
 }
 
 const getters = {
-  status: state => state.status,
-  type: state => state.type,
-  title: state => state.title
+  dialogStatus: state => state.dialogStatus,
+  dialogType: state => state.dialogType,
+  dialogTitle: state => state.dialogTitle
 }
 
 const actions = {}
 
 const mutations = {
   [TYPES.DIALOG_TYPE] (state, type) {
-    state.type = type
+    state.dialogType = type
   },
   [TYPES.DIALOG_OPEN] (state, status) {
-    state.status = status
+    state.dialogStatus = status
   },
   [TYPES.DIALOG_TITLE] (state, title) {
-    state.title = title
+    state.dialogTitle = title
   }
 }
 

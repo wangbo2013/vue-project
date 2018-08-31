@@ -1,12 +1,24 @@
 <template>
   <div class="header-container">
    <div class="header">
-     <span>简书</span>
-     <el-input v-model="input" placeholder="请输入搜索内容"></el-input>
-     <el-button type="primary" size="small" @click="modifyUser">修改个人信息</el-button>
-     <el-button type="primary" size="small" @click="modifyPassword">修改密码</el-button>
+    <span>简书</span>
+    <el-dropdown @command="toggleLanguage">
+      <div class="userInfo"><span>{{languageCodeToText(language)}}</span></div>
+      <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item command="cn">中文</el-dropdown-item>
+        <el-dropdown-item command="en">English</el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>
+    <el-dropdown @command="handleCommand">
+      <div class="userInfo"><span>admin</span></div>
+      <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item command="modifyInfo">编辑资料</el-dropdown-item>
+        <el-dropdown-item command="resetPwd">修改密码</el-dropdown-item>
+        <el-dropdown-item command="logout">退出</el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>
    </div>
-   <dialog-component :title="title" :dialogVisible="dialogVisible">
+   <!-- <dialog-component :title="title" :dialogVisible="dialogVisible">
      <div slot="template">
       <el-form ref="form" :model="form" label-width="80px">
         <el-form-item label="姓名">
@@ -32,7 +44,7 @@
         </el-form-item>
       </el-form>
     </div>
-   </dialog-component>
+   </dialog-component> -->
   </div>
 </template>
 <script>
@@ -56,15 +68,49 @@ export default{
       }
     }
   },
+  created () {
+
+  },
   methods: {
+    handleCommand (command) {
+      if (command === 'modifyInfo') {
+        this.$store.commit('DIALOG_TYPE', 'headPassword')
+      } else if (command === 'resetPwd') {
+        this.$store.commit('DIALOG_TYPE', 'headerUser')
+      } else {
+        this.loginOut()
+      }
+    },
+    // 退出
+    loginOut () {
+      this.$confirm('确定退出吗?', '提示', {
+        type: 'warning'
+      }).then(() => {
+
+      })
+    },
+    languageCodeToText (code) {
+      let language = '中文'
+      switch (code) {
+        case 'en':
+          language = 'English'
+          break
+        default:
+          break
+      }
+      return language
+    },
+    toggleLanguage (command) {
+
+    },
     searchSubmit () {
 
     },
     modifyUser () {
-      this.dialogVisible = true
+
     },
     modifyPassword () {
-      this.dialogVisibleP = true
+
     }
   }
 }
@@ -87,6 +133,9 @@ export default{
     }
     .header{
       line-height: 44px;
+    }
+    .userInfo{
+      margin-right: 20px;
     }
   }
 </style>
