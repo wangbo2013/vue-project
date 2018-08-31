@@ -6,20 +6,20 @@
   </el-container>
 </template>
 <script>
-  import header from './views/layout/header';
-  import content from './views/layout/content';
-  import footer from './views/layout/footer';
+import header from './views/layout/header'
+import content from './views/layout/content'
+import footer from './views/layout/footer'
 export default {
   name: 'app',
-  data(){
-      return {};
+  data () {
+    return {}
   },
   components: {
-      'v-header': header,
-      'v-content': content,
-      'v-footer': footer,
+    'v-header': header,
+    'v-content': content,
+    'v-footer': footer
   }
-};
+}
 </script>
 <style lang="stylus" scoped>
   .el-container{

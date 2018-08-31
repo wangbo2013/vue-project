@@ -36,36 +36,36 @@
   </div>
 </template>
 <script>
-import DialogComponent from '@/components/common/dialog'
+import DialogComponent from '@/components/plugins/dialog'
 export default{
   components: { DialogComponent },
-  data(){
-      return {
-          input: '',
-          dialogVisible: false,
-          title: '修改个人信息',
-          dialogVisibleP: false,
-          titleP: '修改密码',
-          form: {
-            name: '',
-            sex: ''
-          },
-          formPassword: {
-            old: '',
-            new: ''
-          }
+  data () {
+    return {
+      input: '',
+      dialogVisible: false,
+      title: '修改个人信息',
+      dialogVisibleP: false,
+      titleP: '修改密码',
+      form: {
+        name: '',
+        sex: ''
+      },
+      formPassword: {
+        old: '',
+        new: ''
       }
+    }
   },
   methods: {
-        searchSubmit () {
+    searchSubmit () {
 
-        },
-        modifyUser () {
-          this.dialogVisible = true;
-        },
-        modifyPassword () {
-          this.dialogVisibleP = true;
-        }
+    },
+    modifyUser () {
+      this.dialogVisible = true
+    },
+    modifyPassword () {
+      this.dialogVisibleP = true
+    }
   }
 }
 </script>
