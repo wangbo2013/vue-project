@@ -37,6 +37,7 @@ export default {
       default: true
     }
   },
+  /** 自定义指令 */
   directives: {
     draggable: {
       bind (el, binding, vnode, oldVnode) {
