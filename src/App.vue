@@ -1,33 +1,27 @@
 <template>
-  <el-container>
-    <v-header></v-header>
-    <v-content></v-content>
-    <v-footer></v-footer>
-  </el-container>
+  <div id="app">
+    <router-view></router-view>
+  </div>
 </template>
 <script>
-import header from './views/layout/header'
-import content from './views/layout/content'
-import footer from './views/layout/footer'
 export default {
-  name: 'app',
-  data () {
-    return {}
-  },
-  components: {
-    'v-header': header,
-    'v-content': content,
-    'v-footer': footer
-  }
+  name: 'app'
 }
 </script>
-<style lang="stylus" scoped>
-  .el-container{
-    width: 100%;
-    height: 100%;
-    border: 1px solid #808080;
-    display: flex;
-    display: -webkit-flex;
-    flex-direction: column;
-  }
+<style>
+body{
+  padding:0px;
+  margin:0px auto;
+}
+a{
+  text-decoration:none;
+}
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: left;
+  color: #2c3e50;
+}
 </style>
+
