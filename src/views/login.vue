@@ -1,7 +1,7 @@
 <template>
-  <el-form ref="loginFrom" :model="account" :rules="rules" label-position="left" label-width="0px"
+  <el-form ref="loginForm" :model="account" :rules="rules" label-position="left" label-width="0px"
            class="demo-ruleForm login-container">
-    <h3 class="title">管理员登录</h3>
+    <h3 class="title">登录</h3>
     <el-form-item prop="username">
       <el-input type="text" v-model="account.username" auto-complete="off" placeholder="账号"></el-input>
     </el-form-item>
@@ -14,6 +14,9 @@
   </el-form>
 </template>
 <script>
+import API from '@/server/api_user'
+import {USER} from '@/server/url'
+
 export default {
   name: 'login',
   data () {
@@ -31,18 +34,36 @@ export default {
   },
   methods: {
     handleLogin () {
-      /* this.$refs["loginForm"].validate((validator) => {
+      this.$refs['loginForm'].validate((validator) => {
         if (validator) {
-
+          this.loading = true
+          const loginParams = {username: this.account.username, password: this.account.password}
+          API.login(`${USER.login}`, loginParams).then((result) => {
+            this.loading = false
+            if (result && result.id) {
+              localStorage.setItem('access-user', JSON.stringify(result))
+              this.$router.push({path: '/'})
+            } else {
+              this.$message.error({showClose: true, message: result.errmsg || '登陆失败', duration: 2000})
+            }
+          }, (err) => {
+            this.loading = false
+            this.$message.error({showClose: true, message: err.toString(), duration: 2000})
+          }).catch((err) => {
+            if (err) {
+              this.loading = false
+              this.$message.error({showClose: true, message: '请求出现异常', duration: 2000})
+            }
+          })
         }
-      } */
+      })
     }
   }
 }
 </script>
 <style lang="stylus">
 body {
-  background: #DFE9FB;
+  background: #1D2024;
 }
 .login-container {
     -webkit-border-radius: 5px;
