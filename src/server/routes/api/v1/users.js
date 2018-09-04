@@ -7,7 +7,7 @@ const router = express.Router()
 const Users = require('../../../data/user')
 
 // 登陆
-router.post('/login', (req, res) => {
+router.post('/users/login', (req, res) => {
   let username = _.trim(req.query.username || req.body.username || '')
   let password = req.body.password
 
@@ -41,7 +41,9 @@ router.post('/login', (req, res) => {
 })
 
 // 退出登陆
-router.get('/loginOut', (req, res) => {
+router.get('/users/loginOut', (req, res) => {
   req.session.destroy()
   res.json({'errcode': 0, 'errmsg': '退出完成'})
 })
+
+module.exports = {router: router}

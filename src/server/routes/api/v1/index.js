@@ -21,5 +21,5 @@ $fs.readdir(__dirname, (err, files) => {
     }
   })
 })
-
+console.log(router)
 module.exports = {router: router}
