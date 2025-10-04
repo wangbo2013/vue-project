@@ -5,8 +5,7 @@
           :visible.sync="dialogVisible"
           :width="dialogWidth"
           :custom-class="dialogClass"
-          @close="handleClose()">
-           <slot name="template"></slot>
+          @close="handleClose()"><slot name="template"></slot>
        </el-dialog>
    </div> 
 </template>
@@ -19,7 +18,7 @@ export default {
     },
     dialogWidth: {
       type: String,
-      default: '30%'
+      default: '40%'
     },
     dialogClass: {
       type: String,
